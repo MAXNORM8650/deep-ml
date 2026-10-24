@@ -1,7 +1,7 @@
 import numpy as np
 
 def softmax(x):
-    exp = np.exp(x)
+    exp = np.exp(x-np.max(x, axis=1, keepdims=True))
     return exp/np.sum(exp, axis=1, keepdims=True)
     
 def simple_self_attention(X: list[list[float]]) -> list[list[float]]:
