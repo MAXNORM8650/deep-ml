@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-24T12:16:52.328Z",
+  "generated_at": "2026-10-24T12:17:18.485Z",
   "items": {
     "problem:83": {
       "kind": "problem",
@@ -214,7 +214,7 @@
       "url": "https://www.deep-ml.com/problems/955",
       "path": "problems/0955-simple-self-attention-without-trainable-weights",
       "first_solved_at": "2026-10-24T12:16:42.963Z",
-      "last_pushed_at": "2026-10-24T12:16:51.582Z",
+      "last_pushed_at": "2026-10-24T12:17:17.697Z",
       "language": "python",
       "lines": 22
     }

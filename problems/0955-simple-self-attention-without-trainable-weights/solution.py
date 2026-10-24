@@ -18,4 +18,4 @@ def simple_self_attention(X: list[list[float]]) -> list[list[float]]:
     d = X.shape[-1]
     score = X@np.transpose(X)#/np.sqrt(d)
     softmax_score = softmax(score)
-    return list(softmax_score@X)
+    return softmax_score@X
