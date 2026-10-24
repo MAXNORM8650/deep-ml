@@ -11,49 +11,48 @@ class Value:
 		return f"Value(data={fmt(self.data)}, grad={fmt(self.grad)})"
 
 	def __add__(self, other):
-
-		# Implement addition here
 		other = other if isinstance(other, Value) else Value(other)
-		output = Value(self.data+other.data, _children=(self, other), _op = '+')
+		output = Value(self.data+other.data, _children=(self,other), _op='+')
 		def _backward():
-			self.grad+=output.grad # c= a+b, grad a = dl/da = dl/dc*dc/da 
+			# c=a+b
+			self.grad+=output.grad
 			other.grad+=output.grad
 		output._backward = _backward
 		return output
 
+
 	def __mul__(self, other):
-		# Implement multiplication here
 		other = other if isinstance(other, Value) else Value(other)
-		output = Value(self.data*other.data, (self, other), '*')
+		output = Value(self.data*other.data, _children=(self,other), _op='*')
+
 		def _backward():
-			#L = f(c); c = a*b; dl/da = dl/dc*dc/da = dl/dc*b
+			# c=a*b, 
 			self.grad+=output.grad*other.data
 			other.grad+=output.grad*self.data
 		output._backward = _backward
 		return output
 
 	def relu(self):
-		# Implement ReLU here
 		output = Value(0 if self.data<0 else self.data, (self,), 'ReLU')
 		def _backward():
-			# z = relu(a); dl/da = dl/dz*dz/da, 
-			self.grad+= (output.data>0)*output.grad
+			# c=relu(a),
+			self.grad+=(self.data>0)*output.grad
 		output._backward = _backward
 		return output
 
 	def backward(self):
-		# Implement backward pass here
-		topo = []
-		visited_node = set()
-		def nodes(v):
-			if v not in visited_node:
-				visited_node.add(v)
-				for _child in v._prev:
-					nodes(_child)
-				topo.append(v)
-		nodes(self)
+		# We create a full grad graph 
+		topology = []
+		visited = set()
+		def visit_all(v):
+			if v not in visited:
+				visited.add(v)
+				for child in v._prev:
+					visit_all(child)
+				topology.append(v)
+		visit_all(self)
 		self.grad=1
-		for v in reversed(topo):
+		for v in reversed(topology):
 			v._backward()
 		
 
