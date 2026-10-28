@@ -2,7 +2,7 @@
 
 My machine learning practice from [Deep-ML](https://www.deep-ml.com). Every solution here was written by hand.
 
-**19** solved · 17 problems · 0 labs · 2 math
+**20** solved · 18 problems · 0 labs · 2 math
 
 ![Coverage](./coverage.svg)
 
@@ -22,6 +22,7 @@ My machine learning practice from [Deep-ML](https://www.deep-ml.com). Every solu
 | [Transpose of a Matrix](https://www.deep-ml.com/problems/2) | easy | 2026-10-18 | [solution](problems/0002-transpose-of-a-matrix) |
 | [Vector Norms (L1/L2/L-inf) and the Frobenius Norm](https://www.deep-ml.com/problems/328) | easy | 2026-10-18 | [solution](problems/0328-vector-norms-l1-l2-l-inf-and-the-frobenius-norm) |
 | [Calculate Eigenvalues of a Matrix](https://www.deep-ml.com/problems/6) | medium | 2026-10-20 | [solution](problems/0006-calculate-eigenvalues-of-a-matrix) |
+| [Implement Masked Self-Attention](https://www.deep-ml.com/problems/107) | medium | 2026-10-28 | [solution](problems/0107-implement-masked-self-attention) |
 | [Implement Self-Attention Mechanism](https://www.deep-ml.com/problems/53) | medium | 2026-10-28 | [solution](problems/0053-implement-self-attention-mechanism) |
 | [Implementing Basic Autograd Operations](https://www.deep-ml.com/problems/26) | medium | 2026-10-24 | [solution](problems/0026-implementing-basic-autograd-operations) |
 | [Matrix times Matrix ](https://www.deep-ml.com/problems/9) | medium | 2026-10-18 | [solution](problems/0009-matrix-times-matrix) |
