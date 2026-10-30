@@ -30,7 +30,7 @@ def self_attention(Q: torch.Tensor, K: torch.Tensor, V: torch.Tensor) -> torch.T
         Attention output of shape (seq_len, d_k)
     """
     # Your code here
-    score =(Q@K.transpose(-2,-1))/math.sqrt(Q.shape[-1])
+    score =(Q@K.transpose(-1,-2))/math.sqrt(Q.shape[-1])
     softmax_score = torch.nn.functional.softmax(score, dim=-1)
     return softmax_score@V
 
